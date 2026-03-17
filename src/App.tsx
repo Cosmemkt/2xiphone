@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { 
   CheckCircle2, 
@@ -11,11 +12,10 @@ import {
   ChevronDown,
   ArrowRight
 } from 'lucide-react';
-import { useState } from 'react';
 
 const WHATSAPP_LINK = "https://wa.me/554891844173?text=Quero%20aumentar%20as%20vendas%20da%20minha%20loja%20de%20iPhone%20e%20smartphones.";
 
-const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode, delay?: number, className?: string }) => (
+const FadeIn: React.FC<{ children: React.ReactNode, delay?: number, className?: string }> = ({ children, delay = 0, className = "" }) => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -61,7 +61,7 @@ function HeroSection() {
     <section className="relative min-h-screen flex items-center pt-20 pb-16 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0A1A2F] via-[#0F2544] to-[#0A1A2F] opacity-90"></div>
+        <div className="absolute inset-0 bg-[#0A1A2F] opacity-90"></div>
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-500/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3"></div>
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-orange-500/10 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/3"></div>
       </div>
@@ -140,7 +140,7 @@ function ProblemSection() {
   ];
 
   return (
-    <section className="py-24 bg-[#0F2544] relative">
+    <section className="py-24 bg-[#0A1A2F] relative">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto">
           <FadeIn>
@@ -180,9 +180,9 @@ function ProblemSection() {
 
 function SocialProofSection() {
   const videos = [
-    { title: "Binho", subtitle: "Recorde de vendas em menos de 60 dias.", videoUrl: "https://drive.google.com/file/d/1DPn7hCPOWxeC9nmmwfrTJ0moBJQwWMHl/preview" },
-    { title: "Binho", subtitle: "Após apenas 5 meses, o faturamento bateu R$ 400 mil em vendas no mês.", videoUrl: "https://drive.google.com/file/d/1518F3Yn8HRKKEHw81C3JsAQ03xdCQVjf/preview" },
-    { title: "Central iPhone", subtitle: "Em apenas dois meses, o negócio já estava batendo recorde de vendas.", videoUrl: "https://drive.google.com/file/d/1_tI9v66yi7pMUUWT5sCgXoty-Q_l9trf/preview" }
+    { title: "Binho", subtitle: "Recorde de vendas em menos de 60 dias.", videoUrl: "https://www.instagram.com/reel/DVtvSGVEtRe/embed/" },
+    { title: "Binho", subtitle: "Após apenas 5 meses, o faturamento bateu R$ 400 mil em vendas no mês.", videoUrl: "https://www.instagram.com/reel/DVwfX5kkhJ-/embed/" },
+    { title: "Central iPhone", subtitle: "Em apenas dois meses, o negócio já estava batendo recorde de vendas.", videoUrl: "https://www.instagram.com/reel/DVtwtYnkrAh/embed/" }
   ];
 
   return (
@@ -225,7 +225,7 @@ function WhatsAppProofSection() {
   ];
 
   return (
-    <section className="py-24 bg-[#0F2544]">
+    <section className="py-24 bg-[#0A1A2F]">
       <div className="container mx-auto px-4">
         <FadeIn>
           <div className="text-center mb-16">
@@ -245,6 +245,43 @@ function WhatsAppProofSection() {
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function TrustedCompaniesSection() {
+  const companies = [
+    { id: "17Wc9A7bjwCH5bQ2jA8io0tsBm5-S3-OZ", alt: "Empresa 1" },
+    { id: "1Zh_BZ8b2_sRX9ciCC4lPywm9GCpcbySg", alt: "Empresa 2" },
+    { id: "102xqOM0u5FpzN6sRN9sEUz5cHPelUL-q", alt: "Empresa 3" },
+    { id: "1PeZ6Ba5UuMo8FZGoNQhNf1RUqU9cyvYU", alt: "Empresa 4" },
+    { id: "1hmR64laXgxsJG6csKtdcfzexkvUh27_7", alt: "Empresa 5" }
+  ];
+
+  return (
+    <section className="py-24 bg-[#0A1A2F]">
+      <div className="container mx-auto px-4">
+        <FadeIn>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4">Algumas empresas que confiam na nossa metodologia.</h2>
+          </div>
+        </FadeIn>
+
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 max-w-6xl mx-auto items-center">
+          {companies.map((company, index) => (
+            <FadeIn key={index} delay={index * 0.1}>
+              <div className="flex items-center justify-center p-4 grayscale hover:grayscale-0 transition-all duration-300">
+                <img 
+                  src={`https://lh3.googleusercontent.com/d/${company.id}`} 
+                  alt={company.alt} 
+                  className="max-h-24 w-auto object-contain"
+                  referrerPolicy="no-referrer"
+                />
               </div>
             </FadeIn>
           ))}
@@ -303,7 +340,7 @@ function MethodologySection() {
 
 function OfferSection() {
   return (
-    <section className="py-24 bg-[#0F2544] relative overflow-hidden">
+    <section className="py-24 bg-[#0A1A2F] relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center opacity-5 mix-blend-overlay"></div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto bg-gradient-to-br from-[#0A1A2F] to-[#0F2544] p-8 md:p-12 rounded-3xl border border-orange-500/20 shadow-[0_0_50px_rgba(255,107,0,0.1)] text-center">
@@ -334,7 +371,7 @@ function OfferSection() {
 
 function FinalCTASection() {
   return (
-    <section className="py-24 bg-gradient-to-b from-[#0F2544] to-[#0A1A2F]">
+    <section className="py-24 bg-[#0A1A2F]">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           <FadeIn>
@@ -384,7 +421,7 @@ function FAQSection() {
   );
 }
 
-function FAQItem({ question, answer, delay }: { question: string, answer: string, delay: number }) {
+const FAQItem: React.FC<{ question: string, answer: string, delay: number }> = ({ question, answer, delay }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -463,6 +500,7 @@ export default function App() {
       <ProblemSection />
       <SocialProofSection />
       <WhatsAppProofSection />
+      <TrustedCompaniesSection />
       <MethodologySection />
       <OfferSection />
       <FinalCTASection />
