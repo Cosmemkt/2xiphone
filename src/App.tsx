@@ -234,7 +234,7 @@ function WhatsAppProofSection() {
           </div>
         </FadeIn>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           {prints.map((print, index) => (
             <FadeIn key={index} delay={index * 0.2}>
               <div className="relative rounded-2xl overflow-hidden aspect-[9/16] bg-gray-800 border border-white/10 shadow-xl group">
