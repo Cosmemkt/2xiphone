@@ -219,9 +219,8 @@ function SocialProofSection() {
 
 function WhatsAppProofSection() {
   const prints = [
-    { img: "https://lh3.googleusercontent.com/d/1NsnGNGL1wzmTMEQxQYSXoGyQ_Yqv0vsi", alt: "Print de resultado 1" },
-    { img: "https://lh3.googleusercontent.com/d/1Te-LB0ckf3I7xxouUViG5R0sDztGdQJi", alt: "Print de resultado 2" },
-    { img: "https://lh3.googleusercontent.com/d/1bDGch5-QFjtbiellJi1ijPkg4K5ocUwk", alt: "Print de resultado 3" }
+    { img: "https://lh3.googleusercontent.com/d/1Jp94GK3jJWMGwXI9Vd-vSKU4DWDAt21z", alt: "Print de resultado 1" },
+    { img: "https://lh3.googleusercontent.com/d/1GOkARDpf4-grlJM1uF-_eYpD4wKh1VKQ", alt: "Print de resultado 2" }
   ];
 
   return (
@@ -234,17 +233,17 @@ function WhatsAppProofSection() {
           </div>
         </FadeIn>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-2xl mx-auto">
           {prints.map((print, index) => (
             <FadeIn key={index} delay={index * 0.2}>
-              <div className="relative rounded-2xl overflow-hidden aspect-[9/16] bg-gray-800 border border-white/10 shadow-xl group">
+              <div className="relative rounded-2xl overflow-hidden aspect-[9/19] bg-white/5 border border-white/10 shadow-xl group">
                 <img 
                   src={print.img} 
                   alt={print.alt} 
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                  className="absolute inset-0 w-full h-full object-contain p-2 transition-transform duration-500 group-hover:scale-105" 
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
             </FadeIn>
           ))}
@@ -332,37 +331,6 @@ function MethodologySection() {
               </div>
             </FadeIn>
           ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function OfferSection() {
-  return (
-    <section className="py-24 bg-[#0A1A2F] relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center opacity-5 mix-blend-overlay"></div>
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto bg-gradient-to-br from-[#0A1A2F] to-[#0F2544] p-8 md:p-12 rounded-3xl border border-orange-500/20 shadow-[0_0_50px_rgba(255,107,0,0.1)] text-center">
-          <FadeIn>
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-orange-500/20 mb-6">
-              <ShieldCheck className="w-8 h-8 text-orange-500" />
-            </div>
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">O risco é todo nosso.<br/>O lucro é todo seu.</h2>
-            <p className="text-xl text-gray-300 mb-8">Temos tanta confiança no Método 2x que criamos o:</p>
-            
-            <div className="bg-orange-500/10 border border-orange-500/30 rounded-2xl p-8 mb-8">
-              <h3 className="text-2xl font-bold text-orange-400 mb-4">Compromisso 2x</h3>
-              <p className="text-lg text-gray-200">
-                Se em 30 dias de implementação você não tiver resultados em vendas, devolvemos 100% do valor investido na assessoria.
-              </p>
-            </div>
-            
-            <div className="flex justify-center gap-8 text-gray-400 font-medium">
-              <span className="flex items-center gap-2"><CheckCircle2 className="w-5 h-5 text-green-500"/> Sem perguntas.</span>
-              <span className="flex items-center gap-2"><CheckCircle2 className="w-5 h-5 text-green-500"/> Sem burocracia.</span>
-            </div>
-          </FadeIn>
         </div>
       </div>
     </section>
@@ -502,7 +470,6 @@ export default function App() {
       <WhatsAppProofSection />
       <TrustedCompaniesSection />
       <MethodologySection />
-      <OfferSection />
       <FinalCTASection />
       <FAQSection />
       <Footer />
